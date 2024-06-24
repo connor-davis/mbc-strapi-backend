@@ -1,0 +1,201 @@
+{
+  "kind": "collectionType",
+  "collectionName": "up_users",
+  "info": {
+    "name": "user",
+    "description": "",
+    "singularName": "user",
+    "pluralName": "users",
+    "displayName": "User"
+  },
+  "options": {
+    "draftAndPublish": false,
+    "timestamps": true
+  },
+  "attributes": {
+    "username": {
+      "type": "string",
+      "minLength": 3,
+      "unique": true,
+      "configurable": false,
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "minLength": 6,
+      "configurable": false,
+      "required": true
+    },
+    "provider": {
+      "type": "string",
+      "configurable": false
+    },
+    "password": {
+      "type": "password",
+      "minLength": 6,
+      "configurable": false,
+      "private": true
+    },
+    "resetPasswordToken": {
+      "type": "string",
+      "configurable": false,
+      "private": true
+    },
+    "confirmationToken": {
+      "type": "string",
+      "configurable": false,
+      "private": true
+    },
+    "confirmed": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "blocked": {
+      "type": "boolean",
+      "default": true,
+      "configurable": false
+    },
+    "role": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.role",
+      "inversedBy": "users",
+      "configurable": false
+    },
+    "firstName": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "lastName": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "memberShipType": {
+      "type": "enumeration",
+      "enum": [
+        "single",
+        "family",
+        "princalFamily"
+      ],
+      "default": "single",
+      "required": true
+    },
+    "paymentType": {
+      "type": "enumeration",
+      "enum": [
+        "paying",
+        "nonPaying"
+      ],
+      "default": "nonPaying",
+      "required": true,
+      "private": true
+    },
+    "membershipYear": {
+      "type": "integer",
+      "required": false,
+      "default": 2023,
+      "unique": false,
+      "private": true
+    },
+    "membershipNumber": {
+      "type": "integer",
+      "required": false,
+      "unique": true,
+      "private": true
+    },
+    "idPassportNumber": {
+      "type": "biginteger",
+      "required": true,
+      "unique": true
+    },
+    "paymentDate": {
+      "type": "date",
+      "required": false,
+      "private": true
+    },
+    "paymentAmount": {
+      "type": "decimal",
+      "required": false,
+      "private": true
+    },
+    "nextOfKin": {
+      "type": "string",
+      "required": true
+    },
+    "nextOfKinContact": {
+      "type": "string",
+      "required": true
+    },
+    "nextOfKinAddress": {
+      "type": "text",
+      "required": true
+    },
+    "medicalIssues": {
+      "type": "text",
+      "required": false
+    },
+    "medicalAid": {
+      "type": "string",
+      "required": false
+    },
+    "medicalAidNumber": {
+      "type": "biginteger",
+      "required": false
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "bio": {
+      "type": "text"
+    },
+    "interestedInDayHikes": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "interestedInBackpacking": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "preferredContactNumber": {
+      "type": "string"
+    },
+    "addressLineOne": {
+      "type": "string",
+      "required": true
+    },
+    "addressLineTwo": {
+      "type": "string"
+    },
+    "addressLineThree": {
+      "type": "string"
+    },
+    "postalCode": {
+      "type": "integer",
+      "required": true
+    },
+    "residentialArea": {
+      "type": "string"
+    },
+    "memberTitle": {
+      "type": "string"
+    },
+    "processed": {
+      "type": "string"
+    },
+    "user_types": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::user-type.user-type"
+    }
+  }
+}

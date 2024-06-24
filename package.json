@@ -1,0 +1,42 @@
+{
+  "name": "backend",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "dependencies": { 
+    "@ckeditor/strapi-plugin-ckeditor": "^0.0.5",
+    "@ckeditor/ckeditor5-source-editing": "^35.1.0",
+    "@palmabit/strapi-app-version": "^1.1.0",
+    "@strapi/plugin-documentation": "^4.5.4",
+    "@strapi/plugin-i18n": "4.5.4",
+    "@strapi/plugin-users-permissions": "4.5.4",
+    "@strapi/provider-email-nodemailer": "^4.5.4",
+    "@strapi/strapi": "4.5.4",
+    "better-sqlite3": "7.4.6",
+    "pg": "^8.8.0",
+    "strapi-plugin-import-export-entries": "^1.18.0",
+    "strapi-plugin-io": "^1.1.2",
+    "strapi-plugin-local-image-sharp": "^1.2.1",
+    "strapi-provider-email-smtp": "^1.0.3"
+  },
+  "workspaces": [
+    "./src/plugins/strapi-plugin-ckeditor"
+  ],
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "0636c8a0-6ab3-4cf0-8e9d-48c989707fbd"
+  },
+  "engines": {
+    "node": ">=14.19.1 <=18.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "GPL-3.0"
+}
